@@ -25,24 +25,32 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/webapp</directory>
+                <targetPath>META-INF/resources</targetPath>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.7</version>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version>
                 <executions>
                     <execution>
-                        <id>fake-war</id>
+                        <id>devel-war</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>run</goal>
+                            <goal>war</goal>
                         </goals>
                         <configuration>
-                            <target>
-                                <zip destfile="${project.build.directory}/${project.build.finalName}.war">
-                                    <zipfileset dir="${project.build.directory}" includes="${project.build.finalName}.jar" prefix="WEB-INF/lib"/>
-                                </zip>
-                            </target>
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+                            <archiveClasses>true</archiveClasses>
+                            <primaryArtifact>false</primaryArtifact>
+                            <warSourceDirectory>src/devel/webapp</warSourceDirectory>
                         </configuration>
                     </execution>
                 </executions>
@@ -77,7 +85,7 @@
                 <configuration>
                     <port>3001</port>
                     <path>/</path>
-                    <warSourceDirectory>src/META-INF/resources</warSourceDirectory>
+                    <warSourceDirectory>src/main/resources/META-INF/resources</warSourceDirectory>
                 </configuration>
             </plugin>
         </plugins>

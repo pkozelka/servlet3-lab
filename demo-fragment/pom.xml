@@ -24,4 +24,62 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>fake-war</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <zip destfile="${project.build.directory}/${project.build.finalName}.war">
+                                    <zipfileset dir="${project.build.directory}" includes="${project.build.finalName}.jar" prefix="WEB-INF/lib"/>
+                                </zip>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!-- WORKS! -->
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.5.v20120716</version>
+                <configuration>
+                    <!-- see http://wiki.eclipse.org/Jetty/Feature/Jetty_Maven_Plugin -->
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>3001</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                    <webAppConfig>
+                        <contextPath>/</contextPath>
+                    </webAppConfig>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <!-- DOES NOT WORK: reports just "Skipping non-war project" -->
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.0</version>
+                <!-- http://tomcat.apache.org/maven-plugin-2.0/ -->
+                <configuration>
+                    <port>3001</port>
+                    <path>/</path>
+                    <warSourceDirectory>src/META-INF/resources</warSourceDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

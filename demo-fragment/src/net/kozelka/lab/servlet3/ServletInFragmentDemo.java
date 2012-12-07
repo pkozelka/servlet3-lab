@@ -18,6 +18,7 @@ public class ServletInFragmentDemo extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final PrintWriter pw = resp.getWriter();
         pw.println("Hello it's me, the " + ServletInFragmentDemo.class + "!");
+        pw.println("req.getRequestURL() returns " + req.getRequestURL());
         pw.flush();
     }
 }

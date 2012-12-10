@@ -8,5 +8,17 @@
 <p>
     request.getRequestURL() returns <%=request.getRequestURL()%>
 </p>
+<p>
+    Listing for "/" :
+</p>
+<ul>
+    <%
+        for (String item : request.getServletContext().getResourcePaths("/")) {
+    %>
+    <li><%=item%></li>
+    <%
+        }
+    %>
+</ul>
 </body>
 </html>

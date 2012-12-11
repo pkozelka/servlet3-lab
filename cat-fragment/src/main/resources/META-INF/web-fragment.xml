@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-fragment_3_0.xsd"
          version="3.0" metadata-complete="false">
     <servlet>
-        <servlet-name>dog</servlet-name>
-        <servlet-class>net.kozelka.lab.servlet3.DogFragmentServlet</servlet-class>
+        <servlet-name>cat</servlet-name>
+        <servlet-class>net.kozelka.lab.servlet3.CatFragmentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>dog</servlet-name>
-        <url-pattern>/dog/oldway</url-pattern>
+        <servlet-name>cat</servlet-name>
+        <url-pattern>/cat/oldway</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

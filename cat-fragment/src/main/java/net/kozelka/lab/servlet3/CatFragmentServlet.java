@@ -11,13 +11,13 @@ import java.io.PrintWriter;
 /**
  * @author Petr Kozelka
  */
-@WebServlet("/dog/hello")
-public class ServletInFragmentDemo extends HttpServlet {
+@WebServlet("/cat/hello")
+public class CatFragmentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final PrintWriter pw = resp.getWriter();
-        pw.println("Hello it's me, the " + ServletInFragmentDemo.class + "!");
+        pw.println("Hello it's me, the " + CatFragmentServlet.class + "!");
         pw.println("req.getRequestURL() returns " + req.getRequestURL());
         pw.flush();
     }

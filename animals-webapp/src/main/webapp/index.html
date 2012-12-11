@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Servlet 3 API demo</title>
+</head>
+<body>
+<h1>Welcome in servlet 3 api demo</h1>
+<p>
+    Following links should work:
+</p>
+<ul>
+    <li><a href="index.html">[/index.html] - this page = default toplevel welcome page</a></li>
+    <li><a href="jsphello.jsp">[/jsphello.jsp] - simple toplevel JSP page</a></li>
+    <li><a href="dog/">[/dog] - welcome page defined in the web-dog.xml</a></li>
+    <li><a href="dog/main.html">[/dog/main.html] - dog's welcome page explicitly</a></li>
+    <li><a href="main.html">[/main.html] - just to remind that dog can add resources anywhere, including toplevel (it does not have any dedicated subcontext)</a></li>
+    <li><a href="dog/hello">[/dog/hello] - servlet from dog mapped by annotation</a></li>
+    <li><a href="dog/oldway">[/dog/oldway] - servlet from dog mapped by the old way declaration in web-fragment.xml</a></li>
+</ul>
+<p>
+    Following links should NOT work:
+</p>
+<ul>
+    <li><a href="../src/main/webapp/WEB-INF/hidden.txt">[/WEB-INF/hidden.txt] - toplevel's protected area</a></li>
+    <li><a href="META-INF/hidden.txt">[/META-INF/hidden.txt] - dog's protected area</a></li>
+</ul>
+</body>
+</html>

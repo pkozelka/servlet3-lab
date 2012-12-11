@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 /**
  * @author Petr Kozelka
  */
-@WebServlet("/fragment/hello")
+@WebServlet("/dog/hello")
 public class ServletInFragmentDemo extends HttpServlet {
 
     @Override

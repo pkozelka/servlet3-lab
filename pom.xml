@@ -29,7 +29,7 @@
     </dependencyManagement>
 
     <modules>
-        <module>demo-fragment</module>
-        <module>demo-webapp</module>
+        <module>animals-webapp</module>
+        <module>dog-fragment</module>
     </modules>
 </project>

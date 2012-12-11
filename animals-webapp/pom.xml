@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>net.kozelka.lab</groupId>
-    <artifactId>demo-webapp</artifactId>
+    <artifactId>animals-webapp</artifactId>
     <version>1-SNAPSHOT</version>
 
     <packaging>war</packaging>
@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>net.kozelka.lab</groupId>
-            <artifactId>demo-fragment</artifactId>
+            <artifactId>dog-fragment</artifactId>
             <version>1-SNAPSHOT</version>
         </dependency>
     </dependencies>

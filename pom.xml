@@ -30,6 +30,7 @@
 
     <modules>
         <module>animals-webapp</module>
+        <module>bird-fragment</module>
         <module>cat-fragment</module>
         <module>dog-fragment</module>
     </modules>
